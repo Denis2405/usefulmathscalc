@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математические Калькуляторы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .calculator {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 300px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #learnButton {
+            margin-top: 20px;
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Математические Калькуляторы</h1>
+
+<div class="container">
+    <div class="calculator">
+        <h2>Среднее значение</h2>
+        <div class="input-group">
+            <label for="averageNumbers" class="form-label">Введите числа через запятую:</label>
+            <input type="text" id="averageNumbers" class="form-control">
+        </div>
+        <button onclick="calculateAverage()">Рассчитать</button>
+    </div>
+
+    <div class="calculator">
+        <h2>Квадратные уравнения</h2>
+        <div class="input-group">
+            <label for="quadA" class="form-label">Коэффициент a:</label>
+            <input type="text" id="quadA" class="form-control">
+        </div>
+        <div class="input-group">
+            <label for="quadB" class="form-label">Коэффициент b:</label>
+            <input type="text" id="quadB" class="form-control">
+        </div>
+        <div class="input-group">
+            <label for="quadC" class="form-label">Коэффициент c:</label>
+            <input type="text" id="quadC" class="form-control">
+        </div>
+        <button onclick="solveQuadraticEquation()">Решить</button>
+    </div>
+
+    <div class="calculator">
+        <h2>Кубические уравнения</h2>
+        <div class="input-group">
+            <label for="cubicA" class="form-label">Коэффициент a:</label>
+            <input type="text" id="cubicA" class="form-control">
+        </div>
+        <div class="input-group">
+            <label for="cubicB" class="form-label">Коэффициент b:</label>
+            <input type="text" id="cubicB" class="form-control">
+        </div>
+        <div class="input-group">
+            <label for="cubicC" class="form-label">Коэффициент c:</label>
+            <input type="text" id="cubicC" class="form-control">
+        </div>
+        <div class="input-group">
+            <label for="cubicD" class="form-label">Коэффициент d:</label>
+            <input type="text" id="cubicD" class="form-control">
+        </div>
+        <button onclick="solveCubicEquation()">Решить</button>
+    </div>
+
+    <div class="calculator">
+        <h2>Проценты из числа</h2>
+        <div class="input-group">
+            <label for="percentBase" class="form-label">Введите число:</label>
+            <input type="text" id="percentBase" class="form-control">
+        </div>
+        <div class="input-group">
+            <label for="percentValue" class="form-label">Введите процент:</label>
+            <input type="text" id="percentValue" class="form-control">
+        </div>
+        <button onclick="calculatePercentage()">Рассчитать</button>
+    </div>
+
+    <div class="calculator">
+        <h2>Добавить проценты</h2>
+        <div class="input-group">
+            <label for="addPercentBase" class="form-label">Введите число:</label>
+            <input type="text" id="addPercentBase" class="form-control">
+        </div>
+        <div class="input-group">
+            <label for="addPercentValue" class="form-label">Введите процент для добавления:</label>
+            <input type="text" id="addPercentValue" class="form-control">
+        </div>
+        <button onclick="addPercentage()">Рассчитать</button>
+    </div>
+
+    <div class="calculator">
+        <h2>Вычесть проценты</h2>
+        <div class="input-group">
+            <label for="subtractPercentBase" class="form-label">Введите число:</label>
+            <input type="text" id="subtractPercentBase" class="form-control">
+        </div>
+        <div class="input-group">
+            <label for="subtractPercentValue" class="form-label">Введите процент для вычитания:</label>
+            <input type="text" id="subtractPercentValue" class="form-control">
+        </div>
+        <button onclick="subtractPercentage()">Рассчитать</button>
+    </div>
+
+    <div class="calculator">
+        <h2>Перевод в двоичный код</h2>
+        <div class="input-group">
+            <label for="binaryDecimal" class
+            <label for="binaryDecimal" class="form-label">Введите десятичное число:</label>
+            <input type="text" id="binaryDecimal" class="form-control">
+        </div>
+        <button onclick="convertToBinary()">Перевести</button>
+    </div>
+</div>
+
+<button id="learnButton" onclick="learnWithUs()">Учись с нами</button>
+
+<script>
+    function calculateAverage() {
+        const numbersInput = document.getElementById("averageNumbers");
+        const numbersArray = numbersInput.value.split(",").map(Number);
+        const average = numbersArray.reduce((sum, num) => sum + num, 0) / numbersArray.length;
+        alert("Среднее значение: " + average.toFixed(2));
+    }
+
+    function solveQuadraticEquation() {
+        const a = parseFloat(document.getElementById("quadA").value);
+        const b = parseFloat(document.getElementById("quadB").value);
+        const c = parseFloat(document.getElementById("quadC").value);
+
+        const discriminant = b * b - 4 * a * c;
+
+        if (discriminant > 0) {
+            const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            alert("Корни уравнения: " + root1.toFixed(2) + " и " + root2.toFixed(2));
+        } else if (discriminant === 0) {
+            const root = -b / (2 * a);
+            alert("Уравнение имеет один корень: " + root.toFixed(2));
+        } else {
+            alert("Уравнение не имеет действительных корней.");
+        }
+    }
+
+    function solveCubicEquation() {
+        // Код для решения кубического уравнения
+        alert("Решение кубического уравнения не реализовано.");
+    }
+
+    function calculatePercentage() {
+        const baseNumber = parseFloat(document.getElementById("percentBase").value);
+        const percentage = parseFloat(document.getElementById("percentValue").value);
+        const result = (percentage / 100) * baseNumber;
+        alert(percentage.toFixed(2) + "% от числа " + baseNumber.toFixed(2) + " : " + result.toFixed(2));
+    }
+
+    function addPercentage() {
+        const baseNumber = parseFloat(document.getElementById("addPercentBase").value);
+        const percentage = parseFloat(document.getElementById("addPercentValue").value);
+        const result = baseNumber + (percentage / 100) * baseNumber;
+        alert("К числу " + baseNumber.toFixed(2) + " добавлено " + percentage.toFixed(2) + "%, итог: " + result.toFixed(2));
+    }
+
+    function subtractPercentage() {
+        const baseNumber = parseFloat(document.getElementById("subtractPercentBase").value);
+        const percentage = parseFloat(document.getElementById("subtractPercentValue").value);
+        const result = baseNumber - (percentage / 100) * baseNumber;
+        alert("Из числа " + baseNumber.toFixed(2) + " вычтено " + percentage.toFixed(2) + "%, итог: " + result.toFixed(2));
+    }
+
+    function convertToBinary() {
+        const decimalNumber = parseInt(document.getElementById("binaryDecimal").value);
+        const binaryNumber = decimalNumber.toString(2);
+        alert("Двоичное представление числа " + decimalNumber + " : " + binaryNumber);
+    }
+
+    function learnWithUs() {
+        window.location.href = "https://mathsonlinehome.my.canva.site/homepage";
+    }
+</script>
+
+</body>
+</html>
